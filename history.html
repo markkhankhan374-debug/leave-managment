@@ -27,3 +27,56 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leave History - Leave Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Leave Management System</h1>
+    </header>
+
+    <nav class="navbar">
+        <a href="index.html">Dashboard</a>
+        <a href="apply.html">Apply Leave</a>
+        <a href="history.html" class="active">History</a>
+        <a href="approval.html">Approval</a>
+    </nav>
+
+    <div class="history-container">
+        <h2>Leave History</h2>
+        
+        <div class="table-responsive">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Leave Type</th>
+                        <th>Dates</th>
+                        <th>Status</th>
+                        <th>Applied Date</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                    <tr>
+                        <td colspan="6">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="actions">
+            <a href="index.html" class="btn-secondary">Back</a>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
