@@ -1,133 +1,424 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, #eef2f7, #dfe9f3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     padding: 20px;
-    color: #333;
 }
 
-/* Headings */
-h1, h2 {
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-/* Cards (Dashboard) */
-.card {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     background: white;
-    padding: 20px;
-    margin: 10px;
-    display: inline-block;
-    border-radius: 12px;
-    min-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
     text-align: center;
-    font-size: 18px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    background: #f8f9fa;
+    border-bottom: 3px solid #667eea;
+    padding: 0;
+}
+
+.navbar a {
+    flex: 1;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    border-right: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
     font-weight: 500;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+}
+
+.navbar a:last-child {
+    border-right: none;
+}
+
+.navbar a:hover {
+    background: #e8e9ff;
+    color: #667eea;
+}
+
+.navbar a.active {
+    background: #667eea;
+    color: white;
+}
+
+/* Dashboard */
+.dashboard {
+    padding: 40px;
+}
+
+.dashboard h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
 }
 
-/* Navigation */
-nav {
-    margin-top: 30px;
-}
-
-nav a {
-    text-decoration: none;
-    background: #4f46e5;
-    color: white;
-    padding: 10px 18px;
-    margin: 5px;
-    border-radius: 8px;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    background: #3730a3;
+.card.dashboard-stat {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Forms */
-form {
-    background: white;
-    padding: 20px;
-    max-width: 400px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.form-container {
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+.form-container h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+.leave-form {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background: #fff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 /* Buttons */
-button {
-    background: #22c55e;
-    color: white;
+button, .btn-primary, .btn-secondary {
+    padding: 12px 25px;
     border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
+    border-radius: 5px;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
-button:hover {
-    background: #16a34a;
+button, .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    flex: 1;
 }
 
-/* Approval Box */
-.request {
-    background: white;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+button:hover, .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* Table */
-table {
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    flex: 1;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-approve {
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.btn-approve:hover {
+    background: #218838;
+}
+
+.btn-reject {
+    background: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.btn-reject:hover {
+    background: #c82333;
+}
+
+/* History Table */
+.history-container {
+    padding: 40px;
+}
+
+.history-container h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.history-table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-th {
-    background: #4f46e5;
+.history-table thead {
+    background: #667eea;
     color: white;
-    padding: 10px;
 }
 
-td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
+.history-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
 }
 
-/* Back Link */
-a {
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #4f46e5;
-    font-weight: 500;
+.history-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-a:hover {
-    text-decoration: underline;
+.history-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.status-pending {
+    color: #ff9800;
+    font-weight: 600;
+}
+
+.status-approved {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.status-rejected {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+/* Approval Requests */
+.approval-container {
+    padding: 40px;
+}
+
+.approval-container h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+.requests-container {
+    display: grid;
+    gap: 20px;
+}
+
+.request {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.request p {
+    margin: 10px 0;
+    color: #333;
+}
+
+.request p strong {
+    color: #667eea;
+}
+
+.request button {
+    margin-top: 15px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.request .btn-approve {
+    background: #28a745;
+    color: white;
+}
+
+.request .btn-reject {
+    background: #dc3545;
+    color: white;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar a {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .navbar a:last-child {
+        border-bottom: none;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button,
+    .form-actions a {
+        width: 100%;
+    }
+
+    .history-table {
+        font-size: 0.9em;
+    }
+
+    .history-table th,
+    .history-table td {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .dashboard h2,
+    .form-container h2,
+    .history-container h2,
+    .approval-container h2 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 5px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .dashboard,
+    .form-container,
+    .history-container,
+    .approval-container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .card {
+        padding: 15px;
+        min-height: 100px;
+    }
 }
