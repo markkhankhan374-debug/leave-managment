@@ -1,32 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Apply Leave</title>
+    <title>Apply Leave - Leave Management</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Apply Leave</h2>
+<div class="container">
+    <header>
+        <h1>Leave Management System</h1>
+    </header>
 
-<form>
-    <input type="text" placeholder="Employee Name"><br>
-    <input type="text" placeholder="Department"><br>
+    <nav class="navbar">
+        <a href="index.html">Dashboard</a>
+        <a href="apply.html" class="active">Apply Leave</a>
+        <a href="history.html">History</a>
+        <a href="approval.html">Approval</a>
+    </nav>
 
-    <select>
-        <option>Casual</option>
-        <option>Sick</option>
-        <option>Annual</option>
-    </select><br>
+    <div class="form-container">
+        <h2>Apply for Leave</h2>
+        
+        <form id="leaveForm" class="leave-form">
+            <div class="form-group">
+                <label for="employeeName">Employee Name:</label>
+                <input type="text" id="employeeName" placeholder="Enter your name" required>
+            </div>
 
-    From: <input type="date"><br>
-    To: <input type="date"><br>
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <input type="text" id="department" placeholder="Enter your department" required>
+            </div>
 
-    <textarea placeholder="Reason"></textarea><br>
+            <div class="form-group">
+                <label for="leaveType">Leave Type:</label>
+                <select id="leaveType" required>
+                    <option value="">Select Leave Type</option>
+                    <option value="Casual">Casual Leave</option>
+                    <option value="Sick">Sick Leave</option>
+                    <option value="Annual">Annual Leave</option>
+                    <option value="Maternity">Maternity Leave</option>
+                    <option value="Unpaid">Unpaid Leave</option>
+                </select>
+            </div>
 
-    <button type="submit">Submit</button>
-</form>
+            <div class="form-group">
+                <label for="fromDate">From Date:</label>
+                <input type="date" id="fromDate" required>
+            </div>
 
-<a href="index.html">Back</a>
+            <div class="form-group">
+                <label for="toDate">To Date:</label>
+                <input type="date" id="toDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Reason:</label>
+                <textarea id="reason" placeholder="Enter reason for leave" rows="4" required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Submit Application</button>
+                <a href="index.html" class="btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
